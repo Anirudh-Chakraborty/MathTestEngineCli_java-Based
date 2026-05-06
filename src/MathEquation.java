@@ -17,4 +17,15 @@ public class MathEquation {
         return numbers;
     }
 
+    List<Character> generateSymbols() {
+        char symbols[] = {'+', '*', '-'};
+
+        List<Character> symbollist = new ArrayList<>();
+        for (int i = 0; i < difficulty - 1; i++) {
+            int randomindex = caller.rand.nextInt(symbols.length);
+            symbollist.add(symbols[randomindex]);
+        }
+        return symbollist;
+    }
+
 }
