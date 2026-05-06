@@ -28,4 +28,19 @@ public class MathEquation {
         return symbollist;
     }
 
+
+    List<Object> equationGenerator(){
+        List<Object> equation = new ArrayList<>();
+
+        for (int i = 0, j = 0; i<difficulty && j<difficulty; i++,j++){
+            if (i == j){
+                equation.add(generateNumbers().get(i));
+            }else{
+                equation.add(generateSymbols().get(j));
+            }
+        }
+        return equation;
+    }
+
+
 }
