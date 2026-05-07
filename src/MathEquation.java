@@ -42,5 +42,11 @@ public class MathEquation {
         return equation;
     }
 
+    void displayEquation(){
+        for(int i = 0; i< numbeOfQuestion; i++){
+            System.out.println(equationGenerator());
+        }
+    }
+
 
 }
