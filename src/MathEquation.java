@@ -45,8 +45,13 @@ public class MathEquation {
     }
 
     void displayEquation(){
+        List<Object> equation =equationGenerator();
         for(int i = 0; i< numbeOfQuestion; i++){
-            System.out.println(equationGenerator());
+            equation = equationGenerator();
+            System.out.println();
+            for(int j = 0; j<equation.size(); j++){
+                System.out.print(equation.get(j) + " ");
+            }
         }
     }
 }
