@@ -32,11 +32,13 @@ public class MathEquation {
     List<Object> equationGenerator(){
         List<Object> equation = new ArrayList<>();
 
-        for (int i = 0, j = 0; i<difficulty && j<difficulty; i++,j++){
+        for (int i = 0, j = 0; i<difficulty && j<difficulty;){
             if (i == j){
                 equation.add(generateNumbers().get(i));
-            }else{
+                i++;
+            }else if (i > j){
                 equation.add(generateSymbols().get(j));
+                j++;
             }
         }
         return equation;
@@ -47,6 +49,4 @@ public class MathEquation {
             System.out.println(equationGenerator());
         }
     }
-
-
 }
