@@ -2,56 +2,65 @@ import java.util.*;
 
 public class MathEquation {
     int difficulty;
-    int numbeOfQuestion;
+    int numberOfQuestion;
 
-    MathEquation(int difficulty, int numbeOfQuestion) {
-        this.difficulty = difficulty;
-        this.numbeOfQuestion = numbeOfQuestion;
+
+    MathEquation(int difficulty, int numberOfQuestion) {
+        this.difficulty = difficulty+1;
+        this.numberOfQuestion = numberOfQuestion;
     }
 
-    List<Integer> generateNumbers() {
+    private List<Integer> generateNumbers() {
         List<Integer> numbers = new ArrayList<>();
-        for (int i = 1; i < difficulty + 2; i++) {
+        for (int i = 1; i < difficulty + 1; i++) {
             numbers.add(caller.rand.nextInt(10*i));
         }
         return numbers;
     }
 
-    List<Character> generateSymbols() {
+    private List<Character> generateSymbols() {
         char symbols[] = {'+', '*', '-'};
-
-        List<Character> symbollist = new ArrayList<>();
+        List<Character> symbolList = new ArrayList<>();
         for (int i = 0; i < difficulty - 1; i++) {
             int randomindex = caller.rand.nextInt(symbols.length);
-            symbollist.add(symbols[randomindex]);
+            symbolList.add(symbols[randomindex]);
         }
-        return symbollist;
+        return symbolList;
     }
 
 
-    List<Object> equationGenerator(){
+     private List<Object> equationGenerator(){
         List<Object> equation = new ArrayList<>();
+        List<Character> symbols = generateSymbols();
+        List<Integer> numbers = generateNumbers();
 
         for (int i = 0, j = 0; i<difficulty && j<difficulty;){
             if (i == j){
-                equation.add(generateNumbers().get(i));
+                equation.add(numbers.get(i));
                 i++;
             }else if (i > j){
-                equation.add(generateSymbols().get(j));
+                equation.add(symbols.get(j));
                 j++;
             }
         }
         return equation;
     }
-
-    void displayEquation(){
-        List<Object> equation =equationGenerator();
-        for(int i = 0; i< numbeOfQuestion; i++){
-            equation = equationGenerator();
-            System.out.println();
-            for(int j = 0; j<equation.size(); j++){
-                System.out.print(equation.get(j) + " ");
-            }
+//
+//    void displayEquation(){
+//        List<Object> equation;
+//        for(int i = 0; i< numberOfQuestion; i++){
+//            equation = equationGenerator();
+//            System.out.println();
+//            for(int j = 0; j<equation.size(); j++){
+//                System.out.print(equation.get(j) + " ");
+//            }
+//        }
+//    }
+    List<Object> displayEquation(){
+        List<Object> ContainEquations = new ArrayList<>();
+        for(int i = 0; i<numberOfQuestion; i++){
+            ContainEquations.add(equationGenerator());
         }
+        return ContainEquations;
     }
 }
