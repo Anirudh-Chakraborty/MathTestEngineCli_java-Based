@@ -45,17 +45,6 @@ public class MathEquation {
         }
         return equation;
     }
-//
-//    void displayEquation(){
-//        List<Object> equation;
-//        for(int i = 0; i< numberOfQuestion; i++){
-//            equation = equationGenerator();
-//            System.out.println();
-//            for(int j = 0; j<equation.size(); j++){
-//                System.out.print(equation.get(j) + " ");
-//            }
-//        }
-//    }
     List<Object> displayEquation(){
         List<Object> ContainEquations = new ArrayList<>();
         for(int i = 0; i<numberOfQuestion; i++){
