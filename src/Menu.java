@@ -5,5 +5,6 @@ public class Menu {
         System.out.println("Welcome to the Math Sprint Tester");
         System.out.println("We are her to test your skills");
         System.out.println("Please Chose a difficulty from 1 to 10");
+        System.out.println("And How many number of Questions you want");
     }
 }
