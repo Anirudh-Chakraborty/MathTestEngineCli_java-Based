@@ -12,4 +12,12 @@ public class EquationSolver {
             stackMaker(equationList.get(i));
         }
     }
+
+    void stackMaker(List<Object> equations) {
+        Stack<Object> stack = new Stack<>();
+        for (int i = 0; i < equations.size(); i++) {
+            stack.push(equations.get(i));
+        }
+        solver(stack);
+    }
 }
