@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -13,9 +17,21 @@ public class Main {
     menu.StartMenu();
 
     int difficulty = caller.sc.nextInt();
-    int numberofQuestions = caller.sc.nextInt();
+    int numberOfQuestions = caller.sc.nextInt();
 
-    MathEquation questions = new MathEquation(difficulty, numberofQuestions);
-    questions.displayEquation();
+    //The Questions
+    MathEquation questions = new MathEquation(difficulty, numberOfQuestions);
+    //the question exist in this list
+    List<Object> questionsList = questions.displayEquation();
+
+
+        for(int i = 0; i < questionsList.size(); i++){
+            System.out.println(questionsList.get(i));
+        }
+
+        EquationSolver AnswerSet = new EquationSolver(questionsList);
     }
+
+
+
 }
