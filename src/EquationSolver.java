@@ -1,14 +1,15 @@
 import java.util.*;
 public class EquationSolver {
 
-    List<Object> equations;
+    List<Object> equationList;
 
     EquationSolver(List<Object> equations) {
-        this.equations = equations;
+        this.equationList = equations;
     }
 
-    void equationGet() {
-
-
+    void equationSender(List<List<Object>> equationList) {
+        for(int i = 0; i < equationList.size(); i++) {
+            stackMaker(equationList.get(i));
+        }
     }
 }

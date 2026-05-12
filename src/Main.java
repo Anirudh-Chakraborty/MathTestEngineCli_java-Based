@@ -1,3 +1,5 @@
+import org.w3c.dom.stylesheets.LinkStyle;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -30,6 +32,7 @@ public class Main {
         }
 
         EquationSolver AnswerSet = new EquationSolver(questionsList);
+        List<Integer> answerList = AnswerSet.answerList();
     }
 
 
