@@ -28,9 +28,11 @@ public class Main {
 
 
         for(int i = 0; i < questionsList.size(); i++){
+            //sPrinting a single Question at once
             System.out.println(questionsList.get(i));
         }
 
+        //sending the complete list at once
         EquationSolver AnswerSet = new EquationSolver(questionsList);
         List<Integer> answerList = AnswerSet.answerList();
     }
