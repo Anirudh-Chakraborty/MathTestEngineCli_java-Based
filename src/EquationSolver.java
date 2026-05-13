@@ -24,4 +24,9 @@ public class EquationSolver {
     void solver(Stack<Object> stack){
 
     }
+
+    List<Integer> answerList(){
+        List answerList = new ArrayList();
+        return answerList;
+    }
 }
