@@ -20,4 +20,8 @@ public class EquationSolver {
         }
         solver(stack);
     }
+
+    void solver(Stack<Object> stack){
+
+    }
 }
