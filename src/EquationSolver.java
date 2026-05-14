@@ -36,6 +36,23 @@ public class EquationSolver {
 
     }
 
+    int value(char symbol) {
+        switch (symbol) {
+            case '+':
+                return 1;
+            case '-':
+                return 1;
+            case '*':
+                return 3;
+
+            default:
+                break;
+        }
+
+        int value = 0;
+        return value;
+    }
+
     List<Integer> answerList(){
         List answerList = new ArrayList();
         return answerList;
