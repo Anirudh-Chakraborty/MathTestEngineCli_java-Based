@@ -53,6 +53,19 @@ public class EquationSolver {
         return value;
     }
 
+
+
+    int resolve(int num1, int num2, char symbol) {
+        if (symbol == '+') {
+            num1 = num1 + num2;
+        } else if (symbol == '-') {
+            num1 = num1 - num2;
+        } else if (symbol == '*') {
+            num1 = num1 * num2;
+        }
+        return num1;
+    };
+
     List<Integer> answerList(){
         List answerList = new ArrayList();
         return answerList;
