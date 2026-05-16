@@ -30,11 +30,50 @@ public class EquationSolver {
         while (!first.empty()) {
             stack.push(first.pop());
         }
-        solver(stack);
+        stackSolver(stack);
     }
-    void solver(Stack<Object> stack){
+    int stackSolver(Stack<Object> stack) {
+        Stack<Integer> numStack = new Stack<>();
+        Stack<Character> symbolStack = new Stack<>();
 
+        while (!stack.empty()) {
+            if (stack.peek() instanceof Integer) {
+                int num = (int) stack.pop();
+                numStack.push(num);
+
+            } else if (stack.peek() instanceof Character) {
+
+                if (symbolStack.empty()) {
+                    char symbol = (char) stack.pop();
+                    symbolStack.push(symbol);
+                }
+
+                else {
+
+                    while (!symbolStack.empty() && value((char) stack.peek()) <= value((char) symbolStack.peek())) {
+
+                        int num2 = numStack.pop();
+                        int num1 = numStack.pop();
+                        char symbol = symbolStack.pop();
+                        numStack.push(resolve(num1, num2, symbol));
+                    }
+                    char symbol = (char) stack.pop();
+                    symbolStack.push(symbol);
+
+                }
+            }
+        }
+
+        while (!symbolStack.empty()) {
+            int num2 = numStack.pop();
+            int num1 = numStack.pop();
+            char symbol = symbolStack.pop();
+            numStack.push(resolve(num1, num2, symbol));
+        }
+
+        return numStack.pop();
     }
+
 
     int value(char symbol) {
         switch (symbol) {
