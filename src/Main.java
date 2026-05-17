@@ -15,28 +15,31 @@ public class Main {
         main.play();
     }
 
-    void play(){
-    menu.StartMenu();
+    void play() {
+        menu.StartMenu();
 
-    int difficulty = caller.sc.nextInt();
-    int numberOfQuestions = caller.sc.nextInt();
+        int difficulty = caller.sc.nextInt();
+        int numberOfQuestions = caller.sc.nextInt();
 
-    //The Questions
-    MathEquation questions = new MathEquation(difficulty, numberOfQuestions);
-    //the question exist in this list
-    List<Object> questionsList = questions.displayEquation();
+        //The Questions
+        MathEquation questions = new MathEquation(difficulty, numberOfQuestions);
+        //the question exist in this list
+        List<Object> questionsList = questions.displayEquation();
 
-
-        for(int i = 0; i < questionsList.size(); i++){
+        //for printing purpose
+        for (int i = 0; i < questionsList.size(); i++) {
             //sPrinting a single Question at once
             System.out.println(questionsList.get(i));
         }
 
         //sending the complete list at once
         EquationSolver AnswerSet = new EquationSolver(questionsList);
-        List<Integer> answerList = AnswerSet.answerList();
+        List<Integer> answerList = AnswerSet.answerGenrator(questionsList);
+
+        //for printing the answer
+        for (int i = 0; i < answerList.size(); i++) {
+            System.out.println(answerList.get(i));
+        }
     }
-
-
 
 }
