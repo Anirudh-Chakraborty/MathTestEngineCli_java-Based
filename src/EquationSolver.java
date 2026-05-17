@@ -1,37 +1,42 @@
 import java.util.*;
+
 public class EquationSolver {
 
     List<Object> equationList;
 
     EquationSolver(List<Object> equations) {
-    //this receives the list of equation
+        //this receives the list of equation
         this.equationList = equations;
     }
 
-    void equationSender(List<List<Object>> equationList) {
-        for(int i = 0; i < equationList.size(); i++) {
+    List<Integer> answerGenrator(List<Object> equationList) {
+        List<Integer> answerList = new ArrayList<>();
+        for (int i = 0; i < equationList.size(); i++) {
             // from here we send the equations one by one
-            stackMaker(equationList.get(i));
+            int num = stackMaker((List<Object>) equationList.get(i));
+            answerList.add(num);
         }
+        return answerList;
     }
 
-    void stackMaker(List<Object> equations) {
+    int stackMaker(List<Object> equations) {
         //this turns the equation into stack one by one
         //into Lifo
         Stack<Object> stack = new Stack<>();
         for (int i = 0; i < equations.size(); i++) {
             stack.push(equations.get(i));
         }
-        LIFOtoFIFI(stack);
-    } 
+        return LIFOtoFIFI(stack);
+    }
 
-    void LIFOtoFIFI(Stack<Object> first) {
-    Stack<Object> stack = new Stack<>();
+    int LIFOtoFIFI(Stack<Object> first) {
+        Stack<Object> stack = new Stack<>();
         while (!first.empty()) {
             stack.push(first.pop());
         }
-        stackSolver(stack);
+        return stackSolver(stack);
     }
+
     int stackSolver(Stack<Object> stack) {
         Stack<Integer> numStack = new Stack<>();
         Stack<Character> symbolStack = new Stack<>();
@@ -46,9 +51,7 @@ public class EquationSolver {
                 if (symbolStack.empty()) {
                     char symbol = (char) stack.pop();
                     symbolStack.push(symbol);
-                }
-
-                else {
+                } else {
 
                     while (!symbolStack.empty() && value((char) stack.peek()) <= value((char) symbolStack.peek())) {
 
@@ -92,8 +95,6 @@ public class EquationSolver {
         return value;
     }
 
-
-
     int resolve(int num1, int num2, char symbol) {
         if (symbol == '+') {
             num1 = num1 + num2;
@@ -103,10 +104,5 @@ public class EquationSolver {
             num1 = num1 * num2;
         }
         return num1;
-    };
-
-    List<Integer> answerList(){
-        List answerList = new ArrayList();
-        return answerList;
     }
 }
