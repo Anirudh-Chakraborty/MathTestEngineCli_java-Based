@@ -22,6 +22,7 @@ public class Menu {
         void correctAnswer(){
         System.out.println("Correct answer.");
         System.out.println("Lets Get to the Next Question");
+
         System.out.println("If You Wish to Quit press Q");
 //        for later use
 //        System.out.println("Your Current Score: " + currentScore);
