@@ -22,24 +22,36 @@ public class Main {
         int numberOfQuestions = caller.sc.nextInt();
 
         //The Questions
+        List<Object> questionsList = questions(difficulty, numberOfQuestions);
+
+        printer(questionsList);
+
+        // The Computer Answers
+
+        List <Integer> EquationAnswers = equationAnswers(questionsList);
+
+        printer(EquationAnswers);
+    }
+
+
+    List<Object> questions(int difficulty, int numberOfQuestions) {
         MathEquation questions = new MathEquation(difficulty, numberOfQuestions);
         //the question exist in this list
         List<Object> questionsList = questions.displayEquation();
+        return questionsList;
+    }
 
-        //for printing purpose
-        for (int i = 0; i < questionsList.size(); i++) {
-            //sPrinting a single Question at once
-            System.out.println(questionsList.get(i));
+    void printer(List<?> list ){
+        for (Object object : list) {
+            System.out.println(object);
         }
+    }
 
-        //sending the complete list at once
-        EquationSolver AnswerSet = new EquationSolver(questionsList);
-        List<Integer> answerList = AnswerSet.answerGenrator(questionsList);
+    List<Integer> equationAnswers(List<Object> questionList){
+        EquationSolver AnswerSet = new EquationSolver(questionList);
+        List<Integer> answerList = AnswerSet.answerGenrator(questionList);
 
-        //for printing the answer
-        for (int i = 0; i < answerList.size(); i++) {
-            System.out.println(answerList.get(i));
-        }
+    return answerList;
     }
 
 }
