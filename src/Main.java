@@ -24,15 +24,13 @@ public class Main {
         //The Questions
         List<Object> questionsList = questions(difficulty, numberOfQuestions);
 
-        printer(questionsList);
-
         // The Computer Answers
+        List <Integer> equationAnswers = equationAnswers(questionsList);
 
-        List <Integer> EquationAnswers = equationAnswers(questionsList);
-
-        printer(EquationAnswers);
+        //
+        VerifyAnswer game = new VerifyAnswer(questionsList, equationAnswers );
+        game.UserAnswer(questionsList, equationAnswers);
     }
-
 
     List<Object> questions(int difficulty, int numberOfQuestions) {
         MathEquation questions = new MathEquation(difficulty, numberOfQuestions);
@@ -55,3 +53,13 @@ public class Main {
     }
 
 }
+
+
+
+//so I'll be making a single verify class and then i will send two List<object> and then well be calculating three objects
+//
+//if the answer is right we continue to the next question and if the answert is worng then we store attempts and send it to
+//
+//        the scoreclass over there
+//
+//        we get calculate the percentage
