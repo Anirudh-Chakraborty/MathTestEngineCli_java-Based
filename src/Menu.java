@@ -28,4 +28,8 @@ public class Menu {
 //        System.out.println("Your Current Score: " + currentScore);
 //        System.out.println("Your Percentage: " + percentage);
     }
+
+    void endMenu(){
+        System.out.println("Thanks for playing!");
+    }
 }
