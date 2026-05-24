@@ -29,6 +29,10 @@ public class Menu {
 //        System.out.println("Your Percentage: " + percentage);
     }
 
+    void exception(){
+        System.out.println("Wrong answer format");
+        System.out.println("Give the answer in the designated format");
+    }
     void endMenu(){
         System.out.println("Thanks for playing!");
     }
